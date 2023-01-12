@@ -68,6 +68,7 @@ const MemesPage = (props) => {
     return (
         <>
             <div className='App'>
+                <h1>Click on any template to create your own meme</h1>
                 <RenderMemes isLoading={props.memes.isLoading}
                     memeList={props.memes.data}
                     err={props.memes.err}

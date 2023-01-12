@@ -109,6 +109,7 @@ function RenderForm({ id, memeCaption }) {
                             <Grid item xs={12}>
                                 <TextField
                                     fullWidth
+                                    type={"number"}
                                     name="max_font_size"
                                     label="Max Font Size"
                                     id="max_font_size"
@@ -143,6 +144,7 @@ const MakeMeme = (props) => {
     return (
         <>
             <div className='App'>
+            <div className='text'>{searchParams.get("name")}</div>
                 <img
                     key={searchParams.get("id")}
                     src={searchParams.get("src")}
