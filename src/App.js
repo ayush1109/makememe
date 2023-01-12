@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MainComponent from './component/MainComponent';
+import MakeMeme from './component/MakeMeme';
+import YourMeme from './component/CaptionedMeme';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  
+  render() {
+    return (
+      <BrowserRouter>
+        <Routes>
+        <Route exact path="/" element={<MainComponent />} />
+
+        <Route exact path="/memes" element={<MainComponent />} />
+        <Route exact path="/makeMeme" element={<MakeMeme />} />
+        <Route exact path="/yourMeme" element={<YourMeme />} />
+          {/* <Route exact path="/categoryWise" component={CategoryWise} /> */}
+          
+          <Route path="*" exact={true} render={() => {
+            <div>No match</div>
+          }}></Route>
+        </Routes>
+      </BrowserRouter>
+    )
+  }
 }
 
 export default App;

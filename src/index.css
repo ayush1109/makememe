@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.memes-div{
+  margin: 1rem;
+}
+
+.image {
+  margin: 0.5rem;
+  height: auto;
+  width: 100%;
+}
+
+.text {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem 0.2rem;
+  text-align: center;
+  margin: 0.6rem;
+}
+
+
+.image-makeMame {
+  height: 30rem;
+  margin: 1rem;
+}
