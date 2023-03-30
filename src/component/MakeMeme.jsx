@@ -15,10 +15,12 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
 
+// import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 const theme = createTheme();
 
 function RenderForm({ id, memeCaption }) {
+    let form;
     const navigate = useNavigate();
     const fontList = [
         {
@@ -31,6 +33,7 @@ function RenderForm({ id, memeCaption }) {
         }
     ]
     const handleSubmit = (event) => {
+        form = event.currentTarget;
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         const bodyData = {
@@ -50,7 +53,39 @@ function RenderForm({ id, memeCaption }) {
 
     };
 
+
+    // const {
+    //     transcript,
+    //     listening,
+    //     resetTranscript,
+    //     browserSupportsSpeechRecognition
+    // } = useSpeechRecognition();
+
+    // if (!browserSupportsSpeechRecognition) {
+    //     return <span>Browser doesn't support speech recognition.</span>;
+    // }
+
+    // if(listening) {
+    //     const data = new FormData(form);
+    //     document.getElementById('topText').setAttribute('value', transcript);
+    //     document.getElementById('topText').defaultValue = transcript;
+    // }
     return (
+        <>
+         {/* <div>
+                    <p>Microphone: {listening ? 'on' : 'off'}</p>
+                    <Button onClick={SpeechRecognition.startListening}
+                        variant="outlined" color="success" sx={{ mt: 3, mb: 2 }}>
+                        Start </Button>
+                    <Button onClick={SpeechRecognition.stopListening}
+                        variant="outlined" color="error" sx={{ mt: 3, mb: 2 }}>
+                        Stop </Button>
+                    <Button onClick={resetTranscript}
+                        variant="outlined" color="warning" sx={{ mt: 3, mb: 2 }}>
+                        Reset </Button>
+                    <p>{transcript}</p>
+                </div> */}
+
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
@@ -129,6 +164,7 @@ function RenderForm({ id, memeCaption }) {
                 </Box>
             </Container>
         </ThemeProvider>
+        // </>
     );
 }
 
