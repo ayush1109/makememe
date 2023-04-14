@@ -172,7 +172,7 @@ console.log(transcript)
                     <p>{transcript}</p>
                 </div>
                 <div class="search">
-      <input type="text" class="searchTerm" placeholder="What are you looking for?" 
+      <input type="text" class="searchTerm" placeholder="Search template name Eg - Change My Mind" 
       value={query}
       onChange={(e) => {
           handleSearch(e.target.value)
