@@ -3,15 +3,12 @@ import { connect } from 'react-redux';
 import Loader from './loader/Loading';
 import { getMemes } from '../redux/actions/getMemesAction'
 import _ from 'lodash';
-import Masonry from 'react-responsive-masonry';
 import { createSearchParams, Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
 
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import MicIcon from '@mui/icons-material/Mic';
 import MicOffIcon from '@mui/icons-material/MicOff';
-import ReactSearchBox from "react-search-box";
 import { Grid, IconButton } from '@mui/material';
 
 
