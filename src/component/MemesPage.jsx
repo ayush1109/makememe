@@ -45,7 +45,7 @@ function searchMeme(memeList, name) {
     }
 }
 
-const RenderMemes = ({ memeList, transcript }) => {
+const RenderMemes = ({ memeList, transcript }) => { 
 
   
 
