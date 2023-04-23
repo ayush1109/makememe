@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 import Loader from './loader/Loading';
 import { getMemes } from '../redux/actions/getMemesAction'
 import _ from 'lodash';
+import Masonry from 'react-responsive-masonry';
 import { createSearchParams, Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
 
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import MicIcon from '@mui/icons-material/Mic';
 import MicOffIcon from '@mui/icons-material/MicOff';
+import ReactSearchBox from "react-search-box";
 import { Grid, IconButton } from '@mui/material';
 
 
@@ -22,25 +25,6 @@ const data = [
         value: "Jane Doe",
     }
 ];
-
-// const RenderSearchBar = (data) => {
-//     console.log(data)
-//     return (
-        
-//     );
-// }
-
-function searchMeme(memeList, name) {
-    if(memeList.length > 0) {
-        memeList.map(meme => {
-            if(meme.name.includes(name)) {
-                console.log('matched')
-            }
-        })
-    } else {
-        alert('No meem to search');
-    }
-}
 
 const RenderMemes = ({ memeList, transcript }) => { 
 
@@ -65,7 +49,6 @@ const RenderMemes = ({ memeList, transcript }) => {
                                 <Grid container spacing={0}>
                         {memeList.map((meme, i) => {
                             if (transcript.toUpperCase() == meme.name.toUpperCase()) {
-                                console.log('matched');
                                 document.getElementById(meme.id).click();
                             }
                             return (
@@ -116,7 +99,6 @@ const MemesPage = (props) => {
         const getData = async() => {
             const reqData = await fetch('https://api.imgflip.com/get_memes')
             const resData = await reqData.json();
-            console.log(resData.data.memes);
             setMemeData(resData.data.memes);
             setFilterData(resData.data.memes)
         }
@@ -141,7 +123,6 @@ const MemesPage = (props) => {
     //     // executeAction(transcript);
     //   }
 
-console.log(transcript)
     function handleSearch(data) {
         if(data.length > 0) {
             const searchdata = memeData.filter( item => item.name.toLowerCase().includes(data))
@@ -172,7 +153,7 @@ console.log(transcript)
                     <p>{transcript}</p>
                 </div>
                 <div class="search">
-      <input type="text" class="searchTerm" placeholder="Search template name Eg - Change My Mind" 
+      <input type="text" class="searchTerm" placeholder="What are you looking for?" 
       value={query}
       onChange={(e) => {
           handleSearch(e.target.value)

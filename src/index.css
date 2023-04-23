@@ -25,6 +25,11 @@ code {
   padding: 15px;
 
 }
+.image-makeMame {
+  border: 2px solid black;
+  height: 50vh;
+  width: 100vb;
+}
 
 .text {
   background-color: #04AA6D;

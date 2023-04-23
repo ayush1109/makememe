@@ -14,9 +14,9 @@ export const memes = (state = initialState, action) => {
 
         case GET_MEMES:
             return {
-                ...state,
                 isLoading: false,
                 data: action.payload,
+                err: {}
             };
 
 

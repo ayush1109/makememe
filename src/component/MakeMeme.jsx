@@ -53,45 +53,14 @@ function RenderForm({ id, memeCaption }) {
 
     };
 
-
-    // const {
-    //     transcript,
-    //     listening,
-    //     resetTranscript,
-    //     browserSupportsSpeechRecognition
-    // } = useSpeechRecognition();
-
-    // if (!browserSupportsSpeechRecognition) {
-    //     return <span>Browser doesn't support speech recognition.</span>;
-    // }
-
-    // if(listening) {
-    //     const data = new FormData(form);
-    //     document.getElementById('topText').setAttribute('value', transcript);
-    //     document.getElementById('topText').defaultValue = transcript;
-    // }
     return (
         <>
-         {/* <div>
-                    <p>Microphone: {listening ? 'on' : 'off'}</p>
-                    <Button onClick={SpeechRecognition.startListening}
-                        variant="outlined" color="success" sx={{ mt: 3, mb: 2 }}>
-                        Start </Button>
-                    <Button onClick={SpeechRecognition.stopListening}
-                        variant="outlined" color="error" sx={{ mt: 3, mb: 2 }}>
-                        Stop </Button>
-                    <Button onClick={resetTranscript}
-                        variant="outlined" color="warning" sx={{ mt: 3, mb: 2 }}>
-                        Reset </Button>
-                    <p>{transcript}</p>
-                </div> */}
-
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
                     sx={{
-                        marginTop: 8,
+                        marginTop: 2,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -103,7 +72,7 @@ function RenderForm({ id, memeCaption }) {
                     <Typography component="h1" variant="h5">
                         Caption your Meme
                     </Typography>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
@@ -111,7 +80,7 @@ function RenderForm({ id, memeCaption }) {
                                     required
                                     fullWidth
                                     id="topText"
-                                    label="Top Text on the meme"
+                                    label="Text on the meme"
                                     autoFocus
                                 />
                             </Grid>
@@ -120,7 +89,7 @@ function RenderForm({ id, memeCaption }) {
                                     required
                                     fullWidth
                                     id="bottomText"
-                                    label="Bottom Text on the meme"
+                                    label="Other Text on the meme"
                                     name="bottomText"
                                 />
                             </Grid>
@@ -164,7 +133,7 @@ function RenderForm({ id, memeCaption }) {
                 </Box>
             </Container>
         </ThemeProvider>
-        // </>
+         </>
     );
 }
 
@@ -173,21 +142,24 @@ const MakeMeme = (props) => {
 
     const [searchParams, setSearchParams] = useSearchParams();
 
-    useEffect(() => {
-        console.log(props)
-    }, []);
-
     return (
         <>
             <div className='App'>
             <div className='text'>{searchParams.get("name")}</div>
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
                 <img
                     key={searchParams.get("id")}
                     src={searchParams.get("src")}
                     alt={searchParams.get("name")}
                     className='image-makeMame'
                 />
+                </Grid>
+                <Grid item sx={12} md={6}>
                 <RenderForm id={searchParams.get("id")} memeCaption={props.memeCaption} />
+                    </Grid> 
+            </Grid>
+                
             </div>
         </>
     );
