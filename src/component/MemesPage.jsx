@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import Loader from './loader/Loading';
 import { getMemes } from '../redux/actions/getMemesAction'
 import _ from 'lodash';
-import Masonry from 'react-responsive-masonry';
 import { createSearchParams, Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
 import CardContent from '@mui/material/CardContent';
 
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import MicIcon from '@mui/icons-material/Mic';
 import MicOffIcon from '@mui/icons-material/MicOff';
-import ReactSearchBox from "react-search-box";
 import { Grid, IconButton } from '@mui/material';
 
 
@@ -141,15 +137,7 @@ const MemesPage = (props) => {
                 <h1>Click on any template or use Voice assistant feature to create your own meme</h1>
                 <div>
                     <p>Microphone: {listening ? 'on' : 'off'}</p>
-                    {/* <Button onClick={SpeechRecognition.startListening}
-                        variant="outlined" color="success" sx={{ mt: 3, mb: 2 }}>
-                        Start </Button>
-                    <Button onClick={SpeechRecognition.stopListening}
-                        variant="outlined" color="error" sx={{ mt: 3, mb: 2 }}>
-                        Stop </Button>
-                    <Button onClick={resetTranscript}
-                        variant="outlined" color="warning" sx={{ mt: 3, mb: 2 }}>
-                        Reset </Button> */}
+                   
                     <p>{transcript}</p>
                 </div>
                 <div class="search">

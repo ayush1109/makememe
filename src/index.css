@@ -25,11 +25,6 @@ code {
   padding: 15px;
 
 }
-.image-makeMame {
-  border: 2px solid black;
-  height: 50vh;
-  width: 100vb;
-}
 
 .text {
   background-color: #04AA6D;
@@ -40,10 +35,10 @@ code {
   margin: 0.6rem;
 }
 
-
 .image-makeMame {
-  height: 30rem;
+  height: 25rem;
   margin: 1rem;
+  border: 2px solid black;
 }
 
 .search {

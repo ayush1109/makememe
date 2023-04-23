@@ -19,7 +19,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 const theme = createTheme();
 
-function RenderForm({ id, memeCaption }) {
+function RenderForm({ id, memeCaption, name }) {
     let form;
     const navigate = useNavigate();
     const fontList = [
@@ -49,7 +49,11 @@ function RenderForm({ id, memeCaption }) {
 
         memeCaption(bodyData);
 
-        navigate("/yourMeme");
+        navigate("/yourMeme", {
+            state: {
+                name: name
+            }
+        });
 
     };
 
@@ -141,7 +145,6 @@ function RenderForm({ id, memeCaption }) {
 const MakeMeme = (props) => {
 
     const [searchParams, setSearchParams] = useSearchParams();
-
     return (
         <>
             <div className='App'>
@@ -156,7 +159,7 @@ const MakeMeme = (props) => {
                 />
                 </Grid>
                 <Grid item sx={12} md={6}>
-                <RenderForm id={searchParams.get("id")} memeCaption={props.memeCaption} />
+                <RenderForm id={searchParams.get("id")} memeCaption={props.memeCaption} name={searchParams.get('name')} />
                     </Grid> 
             </Grid>
                 
